@@ -153,6 +153,7 @@ function initbackend(){
 	t init 
 	t workspace new $prefix 
 	t apply -auto-approve
+	cat <<<"remote_state_bucket = $(t output bucket)" >> $envvarfile
 }
 
 function initbase(){
