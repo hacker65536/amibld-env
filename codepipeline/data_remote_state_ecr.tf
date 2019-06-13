@@ -1,0 +1,1 @@
+../_common/data_remote_state_ecr.tf

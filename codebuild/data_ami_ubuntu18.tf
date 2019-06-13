@@ -1,0 +1,1 @@
+../_common/data_ami/data_ami_ubuntu18.tf
