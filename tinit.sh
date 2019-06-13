@@ -1,5 +1,6 @@
 #!/bin/env bash
 
+set -e
 
 alias t=terraform
 envvarfile=_common/env.auto.tfvars
@@ -153,7 +154,7 @@ function initbackend(){
 	t init 
 	t workspace new $prefix 
 	t apply -auto-approve
-	cat <<<"remote_state_bucket = $(t output bucket)" >> $envvarfile
+	cat <<<"remote_state_bucket = $(t output bucket)" >> env.auto.tfvars
 }
 
 function initbase(){
