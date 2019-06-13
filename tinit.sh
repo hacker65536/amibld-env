@@ -134,8 +134,7 @@ EOF
 
 opt=${profile:+"--profile ${profile}"}
 aws $opt codebuild import-source-credentials --cli-input-json file://codebuild/credentials.json && \
-echo -e "${ORANGE}imported to aws${NOCOLOR}\n" && \
-rm codebuild/credentials.json
+echo -e "${ORANGE}imported to aws${NOCOLOR}\n" 
 aws $opt codebuild list-source-credentials
 
 fi

@@ -40,3 +40,4 @@ override.tf.json
 key_pair
 key_pair.*
 import-source-credentials.json
+codebuild/credentials.json
