@@ -1,96 +1,52 @@
 # terraform
 
 ```console
-$ alias t=terraform
-```
+$ sh tinit.sh                                                         
+input info for terraform
 
-backend
---
-configure aws profile,session name, region
-```console
-$ cd backend/
-$ cp ../_common/{tmp_env_auto_tfvars,env.auto.tfvars}
-$ vim ../_common/env.auto.tfvars
-```
+region:  us-east-1
+name:    hacker
+profile: infra-test
+prefix: amiblddev
 
 
-init
-```console
-$ terraform init
-```
+---confirm----
+region:  us-east-1
+name:    hacker
+profile: infra-test
+prefix:  amiblddev
+--------------
+init (y/n)y
+wrote to _common/env.auto.tfvars
 
-set prefix for resources
-```console
-$ prefix=MyTF
-$ terraform workspace new $prefix
-```
+input github info for codepipeline
 
-```console
-$ terraform apply 
-```
-
-base
---
-
-```console
-$ cd ../base
-$ sh inittf.sh
-```
-
-```console
-$ terraform apply 
-```
-
-ecr
---
-
-```console
-$ cd ../ecr
-$ sh inittf.sh
-```
-
-```console
-$ terraform apply 
-```
+github_token:           81fe38********************e309104a9
+github_organization:    hacker65536
+github_repo:            amibld-runtime
+github_branch:(master)
 
 
-codepiple
---
+--------confirm---------
+github_token:           81fe38********************e309104a9
+github_organization:    hacker65536
+github_repo:            amibld-runtime
+github_branch:          master
+init (y/n)y
+wrote to codepipeline/github.auto.tfvars
 
-```console
-$ cd ../codepipeline
-$ sh inittf.sh
-```
-configure github
-```console
-$ cp tmp_github_auto_tfvars github.auto.tfvars
-$ vim github.auto.tfvars
-```
+input github info for codebuild
 
-```console
-$ terraform apply 
-```
+github_token:(same as above)
+github_organization:(same as above)
+github_repo:                       amibld-playbooks
+github_branch:(master)
 
-codebuild
---
 
-```console
-$ cd ../codebuild
-$ sh inittf.sh
-```
-configure github
-```console
-$ cp tmp_github_auto_tfvars github.auto.tfvars
-$ vim github.auto.tfvars
-```
-```console
-$ cp import-source-credentials_json import-source-credentials.json
-$ vim import-source-credentials.json
-```
-```console
-$ sh import-source-credentials.sh
-```
-
-```console
-$ terraform apply 
+--------confirm---------
+github_token:           81fe38********************e309104a9
+github_organization:    hacker65536
+github_repo:            amibld-playbooks
+github_branch:          master
+init (y/n)
 ```
