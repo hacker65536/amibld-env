@@ -132,7 +132,7 @@ echo  "wrote to $githubvarfile2"
 }
 EOF
 
-opt=${profile:+"--profile ${profile}"}
+opt="${profile:+--profile ${profile}} ${region:+--region ${region}}"
 aws $opt codebuild import-source-credentials --cli-input-json file://codebuild/credentials.json && \
 echo -e "${ORANGE}imported to aws${NOCOLOR}\n" 
 aws $opt codebuild list-source-credentials
@@ -185,7 +185,6 @@ function initcodepipeline(){
 function initcodebuild(){
 	echo
 	printbule "init codebuild"
-	opt=${profile:+"--profile ${profile}"}
 	aws ${opt} codebuild list-source-credentials
 	echo
 	cd codebuild
