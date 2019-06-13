@@ -1,7 +1,7 @@
 resource "aws_s3_bucket" "state" {
-  bucket = "${terraform.workspace}-state"
-  acl    = "private"
-  tags   = local.tags
+  bucket_prefix = "${terraform.workspace}-state"
+  acl           = "private"
+  tags          = local.tags
 
   force_destroy = true
 
