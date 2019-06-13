@@ -35,7 +35,7 @@ done
 
 
 
-terraform init \
+terraform init  \
 -backend=true \
 -backend-config="bucket=$bucket" \
 -backend-config="key=terraform_state" \

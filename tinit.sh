@@ -40,7 +40,7 @@ if [[ ! -e $envvarfile ]]; then
 	echo 
 	echo
 	echo "---confirm----"
-	echo "region:  $region"
+	echo "region:  ${region:=us-east-1}"
 	echo "name:    $name"
 	echo "profile: $profile"
 	echo "prefix:  $prefix"
@@ -153,8 +153,8 @@ function initbackend(){
 	cd backend  
 	t init 
 	t workspace new $prefix 
-	t apply -auto-approve
-	cat <<<"remote_state_bucket = $(t output bucket)" >> env.auto.tfvars
+	t apply -var="remote_state_bucket=null" -auto-approve
+	cat <<<'remote_state_bucket = "'$(t output bucket)'"' >> env.auto.tfvars
 }
 
 function initbase(){
