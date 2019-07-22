@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "codepipeline" {
-  bucket        = "${terraform.workspace}-codepipeline"
+  bucket_prefix = "${terraform.workspace}-codepipeline"
   acl           = "private"
   force_destroy = true
   tags          = local.tags
@@ -15,7 +15,7 @@ resource "aws_s3_bucket" "codepipeline" {
 }
 
 resource "aws_s3_bucket" "codebuild" {
-  bucket        = "${terraform.workspace}-codepipeline-codebuild"
+  bucket_prefix = "${terraform.workspace}-codepipeline-codebuild"
   acl           = "private"
   force_destroy = true
   tags          = local.tags
