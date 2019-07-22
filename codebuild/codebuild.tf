@@ -127,4 +127,6 @@ resource "aws_codebuild_project" "codebuild" {
     security_group_ids = [data.aws_security_group.sec.id]
   }
   tags = merge(local.tags, map("Name", "${terraform.workspace}-codebuild"))
+
+  depends_on = [aws_s3_bucket.codebuild]
 }
